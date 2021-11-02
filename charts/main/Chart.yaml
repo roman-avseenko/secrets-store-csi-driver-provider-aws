@@ -1,7 +1,7 @@
 apiVersion: v2
 name: secrets-store-csi-driver-provider-aws
-version: 0.0.3
-appVersion: 0.0.3
+version: 0.0.4
+appVersion: 0.0.4
 description: A Helm chart to install AWS Secrets Manager and Config Provider for Secret Store CSI Driver.
 sources:
   - https://github.com/roman-avseenko/secrets-store-csi-driver-provider-aws
