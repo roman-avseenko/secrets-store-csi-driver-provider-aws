@@ -26,8 +26,9 @@ jobs:
           version: v3.4.0
 
       - name: Run chart-releaser
-        uses: helm/chart-releaser-action@v1.2.1
+        uses: stefanprodan/helm-gh-pages@f1701eb82e4d4b82016e7965501c8b6d79feaec9
         with:
+          token: ${{ secrets.GH_TOKEN }}
           charts_dir: charts
-        env:
-          CR_TOKEN: "${{ secrets.GH_TOKEN }}"
+          target_dir: charts
+          linting: off
