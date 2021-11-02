@@ -10,5 +10,5 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: {{ .Chart.Name }}
-  namespace: kube-system
+  namespace: {{ .Values.namespace }}
 ...

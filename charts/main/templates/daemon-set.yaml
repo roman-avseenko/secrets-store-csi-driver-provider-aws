@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  namespace: kube-system
+  namespace: {{ .Values.namespace }}
   name: {{ .Chart.Name }}
   labels:
     app: {{ .Chart.Name }}
