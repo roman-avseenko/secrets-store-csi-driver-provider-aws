@@ -1,13 +1,25 @@
 apiVersion: v1
 entries:
   secrets-store-csi-driver-provider-aws:
+  - apiVersion: v2
+    appVersion: 0.0.6
+    created: "2021-11-02T22:03:33.947526181Z"
+    description: A Helm chart to install AWS Secrets Manager and Config Provider for
+      Secret Store CSI Driver.
+    digest: 06cea32a0dad577df4eaaff20ecb10198c49a4712701fb69432b502970abfa57
+    name: secrets-store-csi-driver-provider-aws
+    sources:
+    - https://github.com/roman-avseenko/secrets-store-csi-driver-provider-aws
+    urls:
+    - https://roman-avseenko.github.io/secrets-store-csi-driver-provider-aws/charts/secrets-store-csi-driver-provider-aws-0.0.6.tgz
+    version: 0.0.6
   - apiVersion: v1
-    created: "2021-11-02T22:24:12.316511+03:00"
+    created: "2021-11-02T22:03:33.947264779Z"
     description: A Helm chart to install AWS Secrets Manager and Config Provider for
       Secret Store CSI Driver.
     digest: 284bf8989627fdf0cebaf8c7f8b11ddd46bcb99ec36ab0b14bcc485cd6861f83
     name: secrets-store-csi-driver-provider-aws
     urls:
-    - secrets-store-csi-driver-provider-aws-0.0.1.tgz
+    - https://roman-avseenko.github.io/secrets-store-csi-driver-provider-aws/charts/secrets-store-csi-driver-provider-aws-0.0.1.tgz
     version: 0.0.1
-generated: "2021-11-02T22:24:12.316147+03:00"
+generated: "2021-11-02T22:03:33.946889475Z"
