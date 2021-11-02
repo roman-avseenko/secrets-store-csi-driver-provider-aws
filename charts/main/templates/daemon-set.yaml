@@ -1,0 +1,50 @@
+
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  namespace: {{ .Values.namespace }}
+  name: {{ .Chart.Name }}
+  labels:
+    app: {{ .Chart.Name }}
+spec:
+  updateStrategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+    spec:
+      serviceAccountName: {{ .Chart.Name }}
+      hostNetwork: true
+      containers:
+        - name: provider-aws-installer
+          image: public.ecr.aws/aws-secrets-manager/secrets-store-csi-driver-provider-aws:1.0.r2-2021.08.13.20.34-linux-amd64
+          imagePullPolicy: Always
+          args:
+              - --provider-volume=/etc/kubernetes/secrets-store-csi-providers
+          resources:
+            requests:
+              cpu: 50m
+              memory: 100Mi
+            limits:
+              cpu: 50m
+              memory: 100Mi
+          volumeMounts:
+            - mountPath: "/etc/kubernetes/secrets-store-csi-providers"
+              name: providervol
+            - name: mountpoint-dir
+              mountPath: /var/lib/kubelet/pods
+              mountPropagation: HostToContainer
+      volumes:
+        - name: providervol
+          hostPath:
+            path: "/etc/kubernetes/secrets-store-csi-providers"
+        - name: mountpoint-dir
+          hostPath:
+            path: /var/lib/kubelet/pods
+            type: DirectoryOrCreate
+...
